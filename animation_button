@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+
+    <style>
+        /* Style the input type submit */
+         input[type="submit"] {
+            padding: 10px 20px; /* Adjust the padding as needed */
+            background-color: transparent; /* Make background transparent */
+            color: #FFC107; /* Set text color */
+            border: 2px solid #FFC107; /* Set border color and width */
+            border-radius: 25px; /* Add border-radius for rounded corners */
+            cursor: pointer; /* Add pointer cursor on hover */
+            transition: background-color 0.3s, color 0.3s; /* Add transition effect */
+        }
+
+        /* Hover effect */
+        input[type="submit"]:hover {
+            background-color: #FFC107; /* Change background color on hover */
+            color: white; /* Change text color on hover */
+        }
+
+        /* Loading animation container */
+        .loading-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 25px; /* Add border-radius for rounded corners */
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Loading animation */
+        .loading-spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+<form id="search_student" enctype="multipart/form-data">
+
+    <br>
+    <div class="loading-container" id="loadingContainer">
+        <div class="loading-spinner"></div>
+    </div>
+    <input type="submit" value="Send" onclick="showLoading()">
+</form>
+
+<script>
+    function showLoading() {
+        document.getElementById('loadingContainer').style.display = 'flex';
+    }
+</script>
+
+</body>
+</html>
